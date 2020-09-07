@@ -8,7 +8,9 @@
         <%= link_to page.user.name, user_path(page.user), class: "no-text-decoration black-color" %>
       </strong>
     </span>
-    <%# <span><%= comment.comment %></span>
-    <span><%= page.body %></span>
+    <%# <span><%= comment.comment</span> %>
+    <%= link_to post_pages_path(post.id, page), class: "no-text-decoration" do %>
+      <span><%= page.body %></span>
+    <% end %>
   </div>
 <% end %>

@@ -9,7 +9,8 @@
       </strong>
     </span>
     <%# <span><%= comment.comment</span> %>
-    <%= link_to post_pages_path(post.id, page), class: "no-text-decoration" do %>
+    <%# <%= link_to post_pages_path(post.id, page), class: "no-text-decoration" do %>
+    <%= link_to "/posts/#{post.id}/pages/#{page.id}" do %>
       <span><%= page.body %></span>
     <% end %>
   </div>

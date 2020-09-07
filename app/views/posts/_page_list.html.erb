@@ -1,0 +1,14 @@
+<% post.pages.each do |page| %>
+  <div class="mb-2">
+    <% if page.user == current_user %>
+      <%= link_to "", post_page_path(post.id, page), method: :delete, remote: true, class: "delete-comment" %>
+    <% end %>
+    <span>
+      <strong>
+        <%= link_to page.user.name, user_path(page.user), class: "no-text-decoration black-color" %>
+      </strong>
+    </span>
+    <%# <span><%= comment.comment %></span> %>
+    <span><%= page.body %></span>
+  </div>
+<% end %>

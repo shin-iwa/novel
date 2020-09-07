@@ -34,6 +34,11 @@
               <div id="comment-post-<%= @post.id.to_s %>">
                 <%= render 'comment_list', post: @post %>
               </div>
+
+              <div id="page-post-<%= @post.id.to_s %>">
+                <%= render 'page_list', post: @post %>
+              </div>
+
             </div>
           </div>
         </div>
@@ -62,9 +67,7 @@
           <% end %>
         </div>
 
-              <div id="comment-post-<%= @post.id.to_s %>">
-                <%= render 'page_list', post: @post %>
-              </div>
+
 
         <div class="row parts" id="comment-form-post-<%= @post.id.to_s %>">
           <%= form_with model: [@post, Page.new],  class: "w-100" do |f| %>

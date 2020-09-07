@@ -2,6 +2,7 @@ class PagesController < ApplicationController
   # def home
   # end
   before_action :authenticate_user!
+  before_action :set_page, only: %i(show destroy)
 
   def create
     @page = Page.new(page_params)
@@ -14,7 +15,7 @@ class PagesController < ApplicationController
   end
 
   def destroy
-    @page = Page.find_by(id: params[:id])
+    # @page = Page.find_by(id: params[:id])
     @post = @page.post
     if @page.destroy
       respond_to :js
@@ -23,9 +24,16 @@ class PagesController < ApplicationController
     end
   end
 
+  def show
+  end
+
   private
     def page_params
       params.required(:page).permit(:user_id, :post_id, :body, :page)
+    end
+
+    def set_page
+      @page = Page.find_by(id: params[:id])
     end
 
 end

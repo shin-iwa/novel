@@ -36,13 +36,10 @@ class PostsController < ApplicationController
   end
 
   def edit
-    # @novel = Novel.new
-    # @article = Article.find(params[:id])
     @pages = @post.pages.includes(:user)
   end
 
   def update
-    # article = Article.find(params[:id])
     @post.update(post_params)
     redirect_to '/'
   end

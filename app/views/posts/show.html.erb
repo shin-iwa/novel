@@ -71,7 +71,7 @@
 
 
 
-        <div class="row parts" id="comment-form-post-<%= @post.id.to_s %>">
+        <div class="row parts" id="page-form-post-<%= @post.id.to_s %>">
           <%= form_with model: [@post, Page.new],  class: "w-100" do |f| %>
             <%= f.hidden_field :user_id, value: current_user.id %>
             <%= f.hidden_field :post_id, value: @post.id %>

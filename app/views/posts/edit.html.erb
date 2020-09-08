@@ -22,6 +22,22 @@
           <%= f.submit "投稿する", class: "btn btn-primary" %>
         <% end %>
       </div>
+
+
+      <div class="m-2">
+        <div id="page-post-<%= @post.id.to_s %>">
+          <%= render 'page_list', post: @post %>
+        </div>
+      </div>
+
+      <div class="row parts" id="page-form-post-<%= @post.id.to_s %>">
+          <%= form_with model: [@post, Page.new],  class: "w-100" do |f| %>
+            <%= f.hidden_field :user_id, value: current_user.id %>
+            <%= f.hidden_field :post_id, value: @post.id %>
+            <%= f.text_field :body, class: "form-control comment-input border-0", placeholder: "投稿 ...", autocomplete: :off %>
+          <% end %>
+        </div>
+
     </div>
   </div>
 </div>

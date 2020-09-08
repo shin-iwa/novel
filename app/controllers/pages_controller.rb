@@ -32,13 +32,17 @@ class PagesController < ApplicationController
   end
   
   def update
-    @page.update(page_params)
+    @page.update(update_page_params)
     redirect_to '/'
   end
 
   private
     def page_params
-      params.required(:page).permit(:user_id, :post_id, :body, :page)
+      params.require(:page).permit(:user_id, :post_id, :body, :page)
+    end
+
+    def update_page_params
+      params.require(:page).permit(:user_id, :post_id, :body, :page, id: params[:id])
     end
 
     def set_page

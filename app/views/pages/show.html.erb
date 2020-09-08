@@ -8,6 +8,9 @@
     <div class="col-md-4">
       <div class="card-right">
         <div class="card-right-comment">
+          <%= link_to edit_post_page_path do %>
+            <span><%= @page.body %></span>
+          <% end %>
           <div class="card-right-name">
             <%= link_to user_path(@page.user), class: "no-text-decoration" do %>
               <%= image_tag avatar_url(@page.user), class: "post-profile-icon" %>

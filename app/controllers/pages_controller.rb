@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   # def home
   # end
   before_action :authenticate_user!
-  before_action :set_page, only: %i(show destroy)
+  before_action :set_page, only: %i(show destroy edit update)
 
   def create
     @page = Page.new(page_params)
@@ -25,6 +25,15 @@ class PagesController < ApplicationController
   end
 
   def show
+  end
+
+  def edit
+    # @pages = @post.pages.includes(:user)
+  end
+  
+  def update
+    @page.update(page_params)
+    redirect_to '/'
   end
 
   private

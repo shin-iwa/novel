@@ -1,0 +1,22 @@
+.col-md-10.col-md-offset-1.mx-auto.postShow-wrap
+  .row.post-wrap
+    .col-md-8
+      .card-left
+    .col-md-4
+      .card-right
+        .card-right-comment
+          = link_to edit_post_page_path do
+            %span= @page.body
+          .card-right-name
+            = link_to user_path(@page.user), class: "no-text-decoration" do
+              = image_tag avatar_url(@page.user), class: "post-profile-icon"
+            = link_to user_path(@page.user), class: "black-color no-text-decoration post-user-name", |
+              title: @page.user.name do                                                              |
+              %strong= @page.user.name
+          - if @page.user_id == current_user.id
+            .m-2
+              %strong
+                = @page.body
+            .comment-post-id
+              .m-2
+            .row.parts

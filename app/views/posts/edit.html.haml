@@ -1,0 +1,22 @@
+.d-flex.flex-column.align-items-center.mt-3
+  .col-xl-7.col-lg-8.col-md-10.col-sm-11.post-card
+    .card
+      .card-header
+        編集画面
+      .card-body
+        = form_with model: @post, class: "upload-images p-0 border-0" do |f|
+          .form-group.row.mt-2
+            .col-auto.pr-0
+              = image_tag avatar_url(current_user), class: "post-profile-icon"
+            .col.pl-0
+              = f.text_field :caption, class: "form-control border-0", placeholder: "キャプションを書く"
+          .mb-3
+          = f.submit "修正する", class: "btn btn-primary"
+      .m-2
+        %div{:id => "page-post-#{@post.id.to_s}"}
+          = render 'page_list', post: @post
+      .row.parts{:id => "page-form-post-#{@post.id.to_s}"}
+        = form_with model: [@post, Page.new],  class: "w-100" do |f|
+          = f.hidden_field :user_id, value: current_user.id
+          = f.hidden_field :post_id, value: @post.id
+          = f.text_field :body, class: "form-control comment-input border-0", placeholder: "投稿 ...", autocomplete: :off

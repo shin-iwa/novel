@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 2020_09_07_053042) do
   end
 
   create_table "pages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "title", null: false
     t.text "body", null: false
     t.bigint "post_id", null: false
     t.bigint "user_id", null: false
@@ -50,6 +51,7 @@ ActiveRecord::Schema.define(version: 2020_09_07_053042) do
   end
 
   create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "title"
     t.string "caption"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -58,6 +60,7 @@ ActiveRecord::Schema.define(version: 2020_09_07_053042) do
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", default: "", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -65,7 +68,6 @@ ActiveRecord::Schema.define(version: 2020_09_07_053042) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "name", default: "", null: false
     t.string "profile_photo"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

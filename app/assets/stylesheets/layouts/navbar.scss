@@ -33,11 +33,14 @@
 }
 .second-line {
   height: 40px;
-  max-width: 980px;
+  max-width: 100%;
   box-sizing: border-box;
   background: linear-gradient(to bottom, #1399ff, rgb(1, 136, 208));
   border-top: 1px solid rgb(1, 112, 216);
   border-bottom: 2px solid rgb(2, 98, 189);
+  // background: linear-gradient(to bottom, #cecece, rgb(142, 142, 142));
+  // border-top: 1px solid rgb(154, 154, 154);
+  // border-bottom: 2px solid rgb(80, 80, 80);
   display: flex;
   align-items: center;
   padding:0 13px;
@@ -61,7 +64,7 @@
   color: white;
 }
 
-// .second-line__bt {
-//   color: white;
-//   font-size: 15px;
-// }
+.second-line__bt {
+  color: white;
+  font-size: 15px;
+}

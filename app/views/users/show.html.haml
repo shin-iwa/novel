@@ -22,3 +22,32 @@
         .row
           %p
             = @user.email
+    .contents.row
+      %p.upper
+        = @user.name
+        さんの作品一覧
+
+      -# - @posts.each do |post|
+
+        -# = render partial: "posts/article", locals: { article: article }
+
+        
+        -# %table.table
+        -#   %thead
+        -#     %tr
+        -#       %th.title
+        -#         %a.name-name{:href => tweet_path(post.id)}
+        -#           = post.
+        -#       %th.author
+        -#         作者：
+        -#         %a.name-name{:href => "/users/#{tweet.user.id}"}
+        -#           = tweet.user.nickname
+        -#   %tbody
+        -#     %tr.secondRecord
+        -#       %td.secondRecord__category
+        -#         .text
+        -#           %p= simple_format(tweet.text.truncate(40, omission: '...')) 
+        -#       %td.secondRecord__link
+        -#         %p.created= tweet.created_at
+
+

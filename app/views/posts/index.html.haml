@@ -11,7 +11,7 @@
                 %th.title
                   = link_to post.title, post_path(post), class: "postTitle"
                 %th.author
-                  = link_to user_path(post.user), class: "black-color no-text-decoration", title: post.user.name do 
+                  = link_to user_path(post.user), class: "black-color no-text-decoration", title: post.user.name do
                     %strong= post.user.name
             %tbody
               %tr.secondRecord
@@ -20,11 +20,13 @@
                 %td.secondRecord__category
                   %span= post.created_at
 
-            %div{:id => "like-icon-post-#{post.id.to_s}"}
-              - if post.liked_by(current_user).present?
-                = link_to "いいねを取り消す", post_like_path(post.id, post.liked_by(current_user)), method: :DELETE, remote: true, class: "loved hide-text"
-              - else
-                = link_to "いいね", post_likes_path(post), method: :POST, remote: true, class: "love hide-text"
+              %tr.secondRecord
+                %td.secondRecord__category
+                  %div{:id => "like-icon-post-#{post.id.to_s}"}
+                    - if post.liked_by(current_user).present?
+                      = link_to "いいねを取り消す", post_like_path(post.id, post.liked_by(current_user)), method: :DELETE, remote: true, class: "loved hide-text"
+                    - else
+                      = link_to "いいね", post_likes_path(post), method: :POST, remote: true, class: "love hide-text"
           -# - if post.user_id == current_user.id
           -#   = link_to post_path(post), method: :delete, class: "ml-auto mx-0 my-auto" do
           -#     .delete-post-icon

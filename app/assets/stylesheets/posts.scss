@@ -120,3 +120,23 @@
   font-size: 16px;
   text-decoration: none;
 }
+.table {
+  %tbody {
+    %thead {
+      %tr {
+        .title {
+          width: 70%;
+        }
+        .author {
+          width: 30%;
+        }
+      }
+    }
+    .secondRecord {
+      // background-color: white;
+      &__category {
+        background-color: white;
+      }
+    }
+  }
+}

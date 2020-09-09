@@ -31,3 +31,37 @@
     }
   }
 }
+.second-line {
+  height: 40px;
+  max-width: 980px;
+  box-sizing: border-box;
+  background: linear-gradient(to bottom, #1399ff, rgb(1, 136, 208));
+  border-top: 1px solid rgb(1, 112, 216);
+  border-bottom: 2px solid rgb(2, 98, 189);
+  display: flex;
+  align-items: center;
+  padding:0 13px;
+  &__info {
+    display: flex;
+    padding: 0 10px;
+    &--box {
+      padding: 10px;
+      width: 165px;
+      border-left: 1px solid #2f2f2f;
+      border-right: 1px solid #cecece;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+.fas{
+  // margin-right:20px;
+  color: white;
+}
+
+// .second-line__bt {
+//   color: white;
+//   font-size: 15px;
+// }

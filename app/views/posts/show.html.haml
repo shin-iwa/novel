@@ -37,11 +37,6 @@
             %hr
             %div{:id => "page-post-#{@post.id.to_s}"}
               = render 'page_list', post: @post
-          .comment-post-id
-            .m-2
-              %div{:id => "comment-post-#{@post.id.to_s}"}
-                = render 'comment_list', post: @post
-            .m-2
         .row.parts
           %div{:id => "like-icon-post-#{@post.id.to_s}"}
             - if @post.liked_by(current_user).present?
@@ -59,6 +54,10 @@
             = f.hidden_field :user_id, value: current_user.id
             = f.hidden_field :post_id, value: @post.id
             = f.text_field :comment, class: "form-control comment-input border-0", placeholder: "コメント ...", autocomplete: :off
+          .comment-post-id
+            .m-2
+              %div{:id => "comment-post-#{@post.id.to_s}"}
+                = render 'comment_list', post: @post
         -# .row.parts{:id => "page-form-post-#{@post.id.to_s}"}
         -#   = form_with model: [@post, Page.new],  class: "w-100" do |f|
         -#     = f.hidden_field :user_id, value: current_user.id

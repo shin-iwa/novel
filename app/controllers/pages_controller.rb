@@ -12,7 +12,7 @@ class PagesController < ApplicationController
       # redirect_to "/"
       redirect_to edit_post_path(@post)
     else
-      redirect_to "/"
+      redirect_to  edit_post_path(@post)
       flash[:alert] = "投稿に失敗しました"
     end
   end

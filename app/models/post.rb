@@ -6,6 +6,7 @@ class Post < ApplicationRecord
   has_many :pages, dependent: :destroy
 
   accepts_nested_attributes_for :photos
+  validates :title,:caption, presence: true
 
   def liked_by(user)
     # user_idとpost_idが一致するlikeを検索する

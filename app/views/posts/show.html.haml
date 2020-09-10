@@ -2,13 +2,16 @@
   .row.post-wrap
     -# .col-md-0
     -#   .card-left
-    .col-md-12
+    .col-md-10.center
       .card-right
         .card-right-comment
           .card-right-name
             = link_to user_path(@post.user), class: "no-text-decoration" do
-              = image_tag avatar_url(@post.user), class: "post-profile-icon"
+              -# = image_tag avatar_url(@post.user), class: "post-profile-icon"
+            %strong
+              = @post.title
             = link_to user_path(@post.user), class: "black-color no-text-decoration post-user-name", title: @post.user.name do
+              作者: 
               %strong= @post.user.name
           -#   - if @post.user_id == current_user.id
           -#     = link_to post_path(@post), method: :delete, class: "ml-auto mx-0 my-auto" do
@@ -16,8 +19,8 @@
           -#     = link_to(edit_post_path(@post)) do
           -#       編集
           -# .m-2
-          %strong
-            = @post.caption
+          %br
+            %p.caption= safe_join(@post.caption.split("\n"), tag(:br))
             %hr
             %div{:id => "page-post-#{@post.id.to_s}"}
               = render 'page_list', post: @post

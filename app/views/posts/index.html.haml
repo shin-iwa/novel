@@ -16,7 +16,7 @@
             %tbody
               %tr.secondRecord
                 %td.secondRecord__category
-                  %span= post.caption
+                  %p= simple_format(post.caption.truncate(70, omission: '...')) 
                 %td.secondRecord__category
                   %span= post.created_at
 

@@ -51,7 +51,7 @@ class PagesController < ApplicationController
     end
 
     def update_page_params
-      params.require(:page).permit(:user_id, :post_id, :body, :page, id: params[:id])
+      params.require(:page).permit(:user_id, :post_id, :title, :body, :page, id: params[:id])
     end
 
     def set_page

@@ -31,7 +31,7 @@ class PagesController < ApplicationController
   end
 
   def edit
-    # @post = @page.post
+    @post = @page.post
     # @pages = @post.pages.includes(:user)
   end
   

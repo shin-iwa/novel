@@ -8,8 +8,10 @@ class PagesController < ApplicationController
     @page = Page.new(page_params)
     @post = @page.post
     if @page.save
-      respond_to :js
+      # respond_to :js
+      redirect_to "/"
     else
+      redirect_to "/"
       flash[:alert] = "投稿に失敗しました"
     end
   end

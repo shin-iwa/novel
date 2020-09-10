@@ -36,8 +36,13 @@ class PagesController < ApplicationController
   end
   
   def update
-    @page.update(update_page_params)
-    redirect_to '/'
+    if @page.update(update_page_params)
+      redirect_to '/'
+      flash[:notice] = "投稿が修正されました"
+    else
+      redirect_to '/'
+      flash[:alert] = "投稿の修正に失敗しました"
+    end
   end
 
   private

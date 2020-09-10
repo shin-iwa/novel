@@ -137,12 +137,25 @@ thead, tbody, tfoot, tr, td, th {
         .author {
           width: 30%;
         }
+        // .option  {
+        //   display: flex;
+        // }
       }
     }
     .secondRecord {
       // background-color: white;
       &__category {
         background-color: white;
+        &--box {
+          display: flex;
+          // justify-content: left;
+          // &__left {
+          //   width: 50%;
+          // }
+          // &__right {
+          //   width: 50%;
+          // }
+        }
       }
     }
   }

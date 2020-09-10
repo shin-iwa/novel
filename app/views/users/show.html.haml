@@ -1,13 +1,11 @@
 .profile-wrap
   .row
     .col-md-4.text-center
-      = image_tag avatar_url(@user), class: "round-img"
     .col-md-8
       .row-edit
         %h1.user= @user.name
         - if @user == current_user
           = link_to "プロフィールを編集", edit_user_registration_path, class: "btn btn-outline-dark edit-profile-btn"
-          %button.setting{"data-target" => "#exampleModal", "data-toggle" => "modal", :type => "button"}
         #exampleModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "exampleModalLabel", :role => "dialog", :tabindex => "-1"}
           .modal-dialog{:role => "document"}
             .modal-content
@@ -24,8 +22,6 @@
             = @user.email
     -# .contents.row
     %p.upper
-      = @user.name
-      さんの作品一覧
       - @user.posts.each do |post|
         .col-md-8.col-md-2.mx-auto
           .card-wrap
@@ -39,12 +35,8 @@
                       %th.author
                         = link_to user_path(post.user), class: "black-color no-text-decoration", title: post.user.name do
                           %strong= post.user.name
+                          
                   %tbody
-                  - if post.user_id == current_user.id
-                    = link_to post_path(post), method: :delete, class: "ml-auto mx-0 my-auto" do
-                      .delete-post-icon
-                  = link_to(edit_post_path(post)) do
-                    編集
                     %tr.secondRecord
                       %td.secondRecord__category
                         %span= post.caption
@@ -59,9 +51,20 @@
                           - else
                             = link_to "いいね", post_likes_path(post), method: :POST, remote: true, class: "love hide-text"
 
-              .card-header.align-items-center.d-flex
+                      %td.secondRecord__category
+                        .secondRecord__category--box
+                          .secondRecord__category--box__left
+                          - if post.user_id == current_user.id
+                            = link_to post_path(post), method: :delete, class: "ml-auto mx-0 my-auto" do
+                              削除
+                              -# .delete-post-icon
+                          .secondRecord__category--box__right
+                          - if post.user_id == current_user.id
+                            = link_to(edit_post_path(post)) do
+                              編集
                 -# = link_to user_path(post.user), class: "no-text-decoration" do
                 %hr/
+              .card-header.align-items-center.d-flex
                 .row.actions{:id => "comment-form-post-#{post.id.to_s}"}
                   = form_with model: [post, Comment.new], class: "w-100" do |f|
                     = f.hidden_field :user_id, value: current_user.id

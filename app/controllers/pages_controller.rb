@@ -39,7 +39,7 @@ class PagesController < ApplicationController
 
   private
     def page_params
-      params.require(:page).permit(:user_id, :post_id, :body, :page)
+      params.require(:page).permit(:user_id, :post_id, :title, :body, :page)
     end
 
     def update_page_params

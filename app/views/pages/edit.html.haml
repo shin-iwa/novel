@@ -14,9 +14,9 @@
                   .form-group.row.mt-2
                     .col-auto.pr-0
                     .col.pl-0
-                      = f.hidden_field :user_id, value: current_user.id
-                      = f.hidden_field :post_id, value: @post.id
-                      = f.hidden_field :post_id, value: @page.id
+                      -# = f.hidden_field :user_id, value: current_user.id
+                      -# = f.hidden_field :post_id, value: @post.id
+                      -# = f.hidden_field :post_id, value: @page.id
                       = f.text_field :title , class: "form-control", placeholder: "タイトル"
                       = f.text_area :body, placeholder: "本文" , rows: "10", class: "form-control"
                       -# = f.text_field :caption, class: "form-control border-0", placeholder: "キャプションを書く"

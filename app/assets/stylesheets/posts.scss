@@ -120,6 +120,11 @@
   font-size: 16px;
   text-decoration: none;
 }
+
+thead, tbody, tfoot, tr, td, th {
+  width: 65%;
+}
+
 .table {
   border: 0 solid #fafafa;
   .tableHead {

@@ -11,7 +11,7 @@
     background-repeat: no-repeat;
     // background-image: image-url("logo.png");
     text-decoration: none;
-    font-size: 30px;
+    font-size: 45px;
   }
   &-nav {
     & > li {
@@ -49,8 +49,8 @@
     &--box {
       padding: 20px 10px 5px 0;
       width: 165px;
-      border-left: 1px solid #2f2f2f;
-      border-right: 1px solid #cecece;
+      // border-left: 1px solid #2f2f2f;
+      // border-right: 1px solid #cecece;
       display: flex;
       justify-content: center;
       align-items: center;

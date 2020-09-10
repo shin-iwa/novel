@@ -6,8 +6,8 @@
           -# = link_to user_path(post.user), class: "no-text-decoration" do
           -#   = image_tag avatar_url(post.user), class: "post-profile-icon"
           %table.table
-            %thead
-              %tr
+            %thead.tableHead
+              %tr.theadLine
                 %th.title
                   = link_to post.title, post_path(post), class: "postTitle"
                 %th.author

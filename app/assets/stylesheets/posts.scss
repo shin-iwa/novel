@@ -121,9 +121,11 @@
   text-decoration: none;
 }
 .table {
-  %tbody {
+  border: 0 solid #fafafa;
+  .tableHead {
+    border-style: none;
     %thead {
-      %tr {
+      .theadLine {
         .title {
           width: 70%;
         }

@@ -4,18 +4,18 @@
     -#   .card-left
     .col-md-10.center
       .card-right
-        ここは作者用メニューです
+        -# ここは作者用メニューです
       .card-body
-        新しい話を追加する
-        .row.parts{:id => "page-form-post-#{@post.id.to_s}"}
-          = form_with model:[@post, Page.new], class: "upload-images p-0 border-0" do |f|
-            = f.hidden_field :user_id, value: current_user.id
-            = f.hidden_field :post_id, value: @post.id
-            = f.text_field :title  ,class: "form-control", placeholder: "タイトル", autocomplete: :on
-            = f.text_area :body, placeholder: "本文" , rows: "10", class: "form-control", autocomplete: :on
+        -# 新しい話を追加する
+        -# .row.parts{:id => "page-form-post-#{@post.id.to_s}"}
+        -#   = form_with model:[@post, Page.new], class: "upload-images p-0 border-0" do |f|
+        -#     = f.hidden_field :user_id, value: current_user.id
+        -#     = f.hidden_field :post_id, value: @post.id
+        -#     = f.text_field :title  ,class: "form-control", placeholder: "タイトル", autocomplete: :on
+        -#     = f.text_area :body, placeholder: "本文" , rows: "10", class: "form-control", autocomplete: :on
 
-            = f.submit "投稿する", class: "btn btn-primary"
-            %hr
+        -#     = f.submit "投稿する", class: "btn btn-primary"
+        -#     %hr
         .card-right-comment
           .card-right__first
             = link_to user_path(@post.user), class: "no-text-decoration" do
@@ -53,13 +53,12 @@
         .post-time
           = time_ago_in_words(@post.created_at).upcase
           前
-        %hr/
+        -# %hr/
         .row.parts{:id => "comment-form-post-#{@post.id.to_s}"}
           = form_with model: [@post, Comment.new],  class: "w-100" do |f|
             = f.hidden_field :user_id, value: current_user.id
             = f.hidden_field :post_id, value: @post.id
             = f.text_field :comment, class: "form-control comment-input border-0", placeholder: "コメント ...", autocomplete: :off
-        %hr/
         -# .row.parts{:id => "page-form-post-#{@post.id.to_s}"}
         -#   = form_with model: [@post, Page.new],  class: "w-100" do |f|
         -#     = f.hidden_field :user_id, value: current_user.id

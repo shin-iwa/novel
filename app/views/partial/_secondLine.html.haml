@@ -17,6 +17,7 @@
           = link_to  "小説", posts_path, class: "second-line__bt"
       %li.second-line__info--box
         %i.fas.fa-user-edit
+          = link_to "投稿", new_post_path, class: "btn btn-primary"
           -# = link_to  "活動報告", tweets_path, class: "second-line__bt"
       %li.second-line__info--box
         - if user_signed_in?

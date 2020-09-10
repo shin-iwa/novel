@@ -2,7 +2,9 @@
   .card.devise-card
     .form-wrap
       .form-group.text-center
-        %h2.logo-img.mx-auto
+        %h2 Novelistへようこそ！
+        %br
+        -# %h2.logo-img.mx-auto
       = form_with scope: resource, as: resource_name, url: session_path(resource_name), local: true do |f|
         = devise_error_messages!
         .form-group

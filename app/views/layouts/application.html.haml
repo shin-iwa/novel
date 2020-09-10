@@ -12,11 +12,12 @@
   %body
     #wrapper
       = render 'partial/navbar' if current_user
-      = render 'partial/secondLine'
+      = render 'partial/secondLine' if current_user
       - if flash[:notice]
         .alert.alert-info= flash[:notice]
       - if flash[:alert]
         .alert.alert-danger= flash[:alert]
       .container
         = yield
+      = render 'partial/secondLine'
       = render 'partial/footer'

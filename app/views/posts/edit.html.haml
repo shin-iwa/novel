@@ -29,7 +29,18 @@
           %div{:id => "page-post-#{@post.id.to_s}"}
             = render 'page_list', post: @post
       .card-right
-
+        .card-body
+          -# = form_with model: @post, class: "upload-images p-0 border-0" do |f|
+          .row.parts{:id => "page-form-post-#{@post.id.to_s}"}
+            = form_with model:[@post, Page.new], class: "upload-images p-0 border-0" do |f|
+              = f.hidden_field :user_id, value: current_user.id
+              = f.hidden_field :post_id, value: @post.id
+              = f.text_field :title , class: "form-control", placeholder: "タイトル"
+              = f.text_area :body, placeholder: "本文" , rows: "10", class: "form-control"
+              -# = f.text_field :caption, class: "form-control border-0", placeholder: "キャプションを書く"
+              .mb-3
+                = f.submit "投稿する", class: "btn btn-primary"
+                -# = f.submit "修正する", class: "btn btn-primary"
       .card-body
         新しい話を追加する
         .row.parts{:id => "page-form-post-#{@post.id.to_s}"}

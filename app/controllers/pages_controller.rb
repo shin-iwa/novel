@@ -9,7 +9,8 @@ class PagesController < ApplicationController
     @post = @page.post
     if @page.save
       # respond_to :js
-      redirect_to "/"
+      # redirect_to "/"
+      redirect_to edit_post_path(@post)
     else
       redirect_to "/"
       flash[:alert] = "投稿に失敗しました"

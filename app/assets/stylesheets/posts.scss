@@ -1,3 +1,7 @@
+a {
+  text-decoration: none;
+}
+
 .post-profile-icon {
   height: 40px;
   width: 40px;
@@ -60,17 +64,22 @@
   padding: 20px;
   margin: 0 auto;
 }
-
-.card-right-name {
+.card-right__first {
+  padding: 20px 0 0;
+  display: flex;
+}
+.card-right__second {
   padding: 20px 0;
   border-bottom: 1px solid #e6e6e6;
   display: flex;
+  text-decoration: none;
 }
+
 
 .card-right-comment {
   padding-bottom: 10px;
   border-bottom: 1px solid #e6e6e6;
-  height: 320px;
+  // height: 320px;
   overflow: auto;
 }
 
@@ -125,8 +134,13 @@
   text-decoration: none;
 }
 
+.postShowTitle{
+  font-size: 20px;
+}
+
 .caption {
   font-size: 15px;
+  line-height: 1.8em
 }
 
 thead, tbody, tfoot, tr, td, th {

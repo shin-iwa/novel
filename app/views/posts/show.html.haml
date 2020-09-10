@@ -4,12 +4,25 @@
     -#   .card-left
     .col-md-10.center
       .card-right
+        ここは作者用メニューです
+      .card-body
+        新しい話を追加する
+        .row.parts{:id => "page-form-post-#{@post.id.to_s}"}
+          = form_with model:[@post, Page.new], class: "upload-images p-0 border-0" do |f|
+            = f.hidden_field :user_id, value: current_user.id
+            = f.hidden_field :post_id, value: @post.id
+            = f.text_field :title  ,class: "form-control", placeholder: "タイトル", autocomplete: :on
+            = f.text_area :body, placeholder: "本文" , rows: "10", class: "form-control", autocomplete: :on
+
+            = f.submit "投稿する", class: "btn btn-primary"
+            %hr
         .card-right-comment
-          .card-right-name
+          .card-right__first
             = link_to user_path(@post.user), class: "no-text-decoration" do
               -# = image_tag avatar_url(@post.user), class: "post-profile-icon"
-            %strong
+            %strong.postShowTitle
               = @post.title
+          .card-right__second
             = link_to user_path(@post.user), class: "black-color no-text-decoration post-user-name", title: @post.user.name do
               作者: 
               %strong= @post.user.name
@@ -55,12 +68,3 @@
         -#     = f.text_field :body, placeholder: "投稿 ...", autocomplete: :off
         -#     = f.submit "投稿する", class: "btn btn-primary"
 
-      .card-body
-        .row.parts{:id => "page-form-post-#{@post.id.to_s}"}
-          = form_with model:[@post, Page.new], class: "upload-images p-0 border-0" do |f|
-            = f.hidden_field :user_id, value: current_user.id
-            = f.hidden_field :post_id, value: @post.id
-            = f.text_field :title  ,class: "form-control", placeholder: "タイトル", autocomplete: :on
-            = f.text_area :body, placeholder: "本文" , rows: "10", class: "form-control", autocomplete: :on
-
-            = f.submit "投稿する", class: "btn btn-primary"

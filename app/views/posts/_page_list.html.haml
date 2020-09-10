@@ -6,6 +6,6 @@
       %strong
         -# = link_to page.user.name, user_path(page.user), class: "no-text-decoration black-color"
     = link_to "/posts/#{post.id}/pages/#{page.id}" do
-      %span= page.title
-    %span= page.body
+      %span.pageTitle= page.title
+    -# %span= page.body
     %span= page.created_at

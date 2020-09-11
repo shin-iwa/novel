@@ -1,3 +1,12 @@
+.containerHead {
+  height: 60px;
+  width: 100%;
+  max-width: 980px;
+  display: flex;
+  background-color: white;
+  padding: 0 10px;
+  margin: 0 auto;
+}
 .navbar {
   background-color: #fff;
   border-bottom: 1px solid rgba(0, 0, 0, .0975);
@@ -9,6 +18,7 @@
   }
   &__mainLogo {
     background-repeat: no-repeat;
+    // height: 100px;
     // background-image: image-url("logo.png");
     text-decoration: none;
     font-size: 45px;
@@ -48,7 +58,7 @@
     display: flex;
     &--box {
       padding: 20px 10px 5px 0;
-      width: 165px;
+      width: 100px;
       // border-left: 1px solid #2f2f2f;
       // border-right: 1px solid #cecece;
       display: flex;

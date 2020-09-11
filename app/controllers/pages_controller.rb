@@ -12,7 +12,7 @@ class PagesController < ApplicationController
       # redirect_to "/"
       redirect_to edit_post_path(@post)
     else
-      redirect_to  edit_post_path(@post)
+      redirect_to edit_post_path(@post)
       flash[:alert] = "投稿に失敗しました"
     end
   end
@@ -37,10 +37,10 @@ class PagesController < ApplicationController
   
   def update
     if @page.update(update_page_params)
-      redirect_to '/'
+      redirect_to post_page_path(@page)
       flash[:notice] = "投稿が修正されました"
     else
-      redirect_to '/'
+      redirect_to post_page_path(@page)
       flash[:alert] = "投稿の修正に失敗しました"
     end
   end

@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_post, only: %i(show destroy)
+  before_action :set_post, only: %i(show destroy edit update)
 
   def new
     @post = Post.new
@@ -33,6 +33,15 @@ class PostsController < ApplicationController
       flash[:alert] = "投稿の削除に失敗しました"
     end
     redirect_to root_path
+  end
+
+  def edit
+    @pages = @post.pages.includes(:user)
+  end
+
+  def update
+    @post.update(post_params)
+    redirect_to '/'
   end
 
   private

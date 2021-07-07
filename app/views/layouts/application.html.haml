@@ -1,0 +1,23 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Novel
+    = csrf_meta_tags
+    = csp_meta_tag
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    %script{:src => "http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"}
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    #wrapper
+      = render 'partial/navbar' if current_user
+      = render 'partial/secondLine' if current_user
+      - if flash[:notice]
+        .alert.alert-info= flash[:notice]
+      - if flash[:alert]
+        .alert.alert-danger= flash[:alert]
+      .container
+        = yield
+      = render 'partial/secondLine'
+      = render 'partial/footer'

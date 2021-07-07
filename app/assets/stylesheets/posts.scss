@@ -1,3 +1,10 @@
+a {
+  text-decoration: none;
+}
+
+.container {
+  margin-bottom: 20px;
+}
 .post-profile-icon {
   height: 40px;
   width: 40px;
@@ -5,8 +12,13 @@
   margin-right: 10px;
 }
 
+.card {
+  border: 1px solid #c0c0c0; 
+  padding: 10px 0 0;
+
+}
 .card-wrap {
-  margin: 40px 0px;
+  margin: 30px 0 0;
 }
 
 .no-text-decoration:hover {
@@ -53,20 +65,34 @@
   padding: 0px;
 }
 
-.card-right {
-  padding: 20px;
+.card-header {
+  background-color: white;
 }
 
-.card-right-name {
-  padding-bottom: 10px;
-  border-bottom: 1px solid #e6e6e6;
+.col-md-10 {
+  background-color: white;
+  margin: 0 auto;
+}
+.card-right {
+  padding: 20px;
+  margin: 0 auto;
+}
+.card-right__first {
+  padding: 20px 0 0;
   display: flex;
 }
+.card-right__second {
+  padding: 20px 0;
+  border-bottom: 1px solid #e6e6e6;
+  display: flex;
+  text-decoration: none;
+}
+
 
 .card-right-comment {
   padding-bottom: 10px;
   border-bottom: 1px solid #e6e6e6;
-  height: 320px;
+  // height: 320px;
   overflow: auto;
 }
 
@@ -114,4 +140,58 @@
   float: right;
   margin: 5px 0 0 10px;
   background-size: 11px !important;
+}
+
+.postTitle {
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.postShowTitle{
+  font-size: 20px;
+}
+
+.caption {
+  font-size: 15px;
+  line-height: 1.8em
+}
+
+thead, tbody, tfoot, tr, td, th {
+  width: 65%;
+}
+
+.table {
+  border: 0 solid #fafafa;
+  .tableHead {
+    border-style: none;
+    %thead {
+      .theadLine {
+        .title {
+          width: 70%;
+        }
+        .author {
+          width: 30%;
+        }
+        // .option  {
+        //   display: flex;
+        // }
+      }
+    }
+    .secondRecord {
+      // background-color: white;
+      &__category {
+        background-color: white;
+        &--box {
+          display: flex;
+          // justify-content: left;
+          // &__left {
+          //   width: 50%;
+          // }
+          // &__right {
+          //   width: 50%;
+          // }
+        }
+      }
+    }
+  }
 }

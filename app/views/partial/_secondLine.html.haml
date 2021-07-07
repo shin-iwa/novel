@@ -1,0 +1,28 @@
+.second-line
+  %ul.second-line__info
+    %li.second-line__info--box
+      %i.fas.fa-home
+        - if user_signed_in?
+          = link_to "マイページ", "/users/#{current_user.id}",class: "second-line__bt"
+        -# - else
+        -#   = link_to "マイページ", new_user_session_path ,class: "second-line__bt"
+      -# %li.second-line__info--box
+        -# %i.fas.fa-sign-out-alt
+        -#   - if user_signed_in?
+        -#     = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "second-line__bt"
+          -# - else
+          -#   = link_to "ログイン", new_user_session_path, class: "second-line__bt"
+      %li.second-line__info--box
+        %i.fas.fa-book-reader
+          = link_to  "小説", posts_path, class: "second-line__bt"
+      %li.second-line__info--box
+        %i.fas.fa-user-edit
+          = link_to "投稿", new_post_path, class: "second-line__bt"
+          -# = link_to  "活動報告", tweets_path, class: "second-line__bt"
+      -# %li.second-line__info--box
+
+      -# .second-line__first
+        
+      -# .second-line__second
+      -# = link_to "新規登録", new_user_registration_path, class: 'post'
+        

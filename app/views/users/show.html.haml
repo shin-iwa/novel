@@ -1,0 +1,95 @@
+.profile-wrap
+  .row
+    .col-md-4.text-center
+    .col-md-8
+      .row-edit
+        %h1.user= @user.name
+        - if @user == current_user
+          = link_to "プロフィールを編集", edit_user_registration_path, class: "btn btn-outline-dark edit-profile-btn"
+        #exampleModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "exampleModalLabel", :role => "dialog", :tabindex => "-1"}
+          .modal-dialog{:role => "document"}
+            .modal-content
+              .modal-header
+                %h5#exampleModalLabel.modal-title 設定
+                %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+                  %span{"aria-hidden" => "true"} ×
+              .list-group.text-center
+                = link_to "サインアウト", destroy_user_session_path, method: :delete, class: "list-group-item list-group-item-action"
+                = link_to "キャンセル", "#", class: "list-group-item list-group-item-action", "data-dismiss": "modal"
+      - if @user == current_user
+        .row
+          %p
+            = @user.email
+    -# .contents.row
+    %p.upper
+      - @user.posts.each do |post|
+        .col-md-8.col-md-2.mx-auto
+          .card-wrap
+            .card
+              .card-header.align-items-center.d-flex
+                %table.table
+                  %thead.tableHead
+                    %tr.theadLine
+                      %th.title
+                        = link_to post.title, post_path(post), class: "postTitle"
+                      %th.author
+                        = link_to user_path(post.user), class: "black-color no-text-decoration", title: post.user.name do
+                          %strong= post.user.name
+                          
+                  %tbody
+                    %tr.secondRecord
+                      %td.secondRecord__category
+                        %span= post.caption
+                      %td.secondRecord__category
+                        %span= post.created_at
+
+                    %tr.secondRecord
+                      %td.secondRecord__category
+                        %div{:id => "like-icon-post-#{post.id.to_s}"}
+                          - if post.liked_by(current_user).present?
+                            = link_to "いいねを取り消す", post_like_path(post.id, post.liked_by(current_user)), method: :DELETE, remote: true, class: "loved hide-text"
+                          - else
+                            = link_to "いいね", post_likes_path(post), method: :POST, remote: true, class: "love hide-text"
+
+                      %td.secondRecord__category
+                        .secondRecord__category--box
+                          .secondRecord__category--box__left
+                          - if post.user_id == current_user.id
+                            = link_to post_path(post), method: :delete, class: "ml-auto mx-0 my-auto" do
+                              削除
+                              -# .delete-post-icon
+                          .secondRecord__category--box__right
+                          - if post.user_id == current_user.id
+                            = link_to(edit_post_path(post)) do
+                              編集
+                -# = link_to user_path(post.user), class: "no-text-decoration" do
+                %hr/
+              .card-header.align-items-center.d-flex
+                .row.actions{:id => "comment-form-post-#{post.id.to_s}"}
+                  = form_with model: [post, Comment.new], class: "w-100" do |f|
+                    = f.hidden_field :user_id, value: current_user.id
+                    = f.hidden_field :post_id, value: post.id
+                    = f.text_field :comment, class: "form-control comment-input border-0", placeholder: "コメント ...", autocomplete: :off
+                  -#   = image_tag avatar_url(post.user), class: "post-profile-icon"
+                  -# = link_to user_path(post.user), class: "black-color no-text-decoration", |
+                  -#   title: post.user.name do                                               |
+                  -#   %strong= post.user.name
+                -# .card-body
+                -#   .row.parts
+                -#     %div{:id => "like-icon-post-#{post.id.to_s}"}
+                -#       - if post.liked_by(current_user).present?
+                -#         = link_to "いいねを取り消す", post_like_path(post.id, post.liked_by(current_user)), method: :DELETE, remote: true, class: "loved hide-text"
+                -#       - else
+                -#         = link_to "いいね", post_likes_path(post), method: :POST, remote: true, class: "love hide-text"
+                -#     = link_to "", "#", class: "comment"
+                -#   %div{:id => "like-text-post-#{post.id.to_s}"}
+                -#     = render "like_text", { likes: post.likes }
+                %div
+                  -# %span
+                  -#   %strong= post.user.name
+                  -# %span= post.caption
+                  -# = link_to time_ago_in_words(post.created_at).upcase + "前", post_path(post), class: "post-time no-text-decoration"
+                  -# %div{:id => "comment-post-#{post.id.to_s}"}
+                  -#   = render '/posts/comment_list', { post: post }
+                  -# = link_to time_ago_in_words(post.created_at).upcase + "前", post_path(post), |
+                  -#   class: "light-color post-time no-text-decoration"                         |

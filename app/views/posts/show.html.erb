@@ -2,7 +2,7 @@
   <div class="row post-wrap">
     <div class="col-md-8">
       <div class="card-left">
-        <%= image_tag @post.photos.first.image.url(:medium), class: "card-img-top" %>
+        <%# <%= image_tag @post.photos.first.image.url(:medium), class: "card-img-top" %> 
       </div>
     </div>
     <div class="col-md-4">
@@ -21,6 +21,9 @@
                 <div class="delete-post-icon">
                 </div>
               <% end %>
+              <%= link_to(edit_post_path(@post)) do %>
+                編集
+              <% end %>
             <% end %>
           </div>
           <div class="m-2">
@@ -33,6 +36,13 @@
 
               <div id="comment-post-<%= @post.id.to_s %>">
                 <%= render 'comment_list', post: @post %>
+              </div>
+
+
+            </div>
+            <div class="m-2">
+              <div id="page-post-<%= @post.id.to_s %>">
+                <%= render 'page_list', post: @post %>
               </div>
             </div>
           </div>
@@ -61,6 +71,17 @@
             <%= f.text_field :comment, class: "form-control comment-input border-0", placeholder: "コメント ...", autocomplete: :off %>
           <% end %>
         </div>
+
+
+
+        <div class="row parts" id="page-form-post-<%= @post.id.to_s %>">
+          <%= form_with model: [@post, Page.new],  class: "w-100" do |f| %>
+            <%= f.hidden_field :user_id, value: current_user.id %>
+            <%= f.hidden_field :post_id, value: @post.id %>
+            <%= f.text_field :body, class: "form-control comment-input border-0", placeholder: "投稿 ...", autocomplete: :off %>
+          <% end %>
+        </div>
+
       </div>
     </div>
   </div>
